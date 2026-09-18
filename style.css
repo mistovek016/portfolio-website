@@ -154,12 +154,15 @@ a[target="_blank"]::after {
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+
 a[target="_blank"]:hover::after {
     transform: translate(2px, -2px);
     opacity: 1;
 }
 
-/* DISCORD */
+
+/*
+DISCORD
 a[target="_discord"]::after {
     content: " ";
     font-family: var(--font-mono);
@@ -167,7 +170,6 @@ a[target="_discord"]::after {
     opacity: 0.5;
     display: inline-block;
     margin-left: 0.3em;
-    /* Adds the perfect amount of breathing room */
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -176,7 +178,6 @@ a[target="_discord"]:hover::after {
     opacity: 1;
 }
 
-/*
 .geo-stamp {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -197,15 +198,15 @@ a[target="_discord"]:hover::after {
     transition: opacity 0.3s ease;
 }
 
-/* 4. DIM THE ROOM HOVER EFFECT */
+/* 4. DIM THE ROOM HOVER EFFECT
 .entry-list:hover .entry-item {
     opacity: 0.5;
-    /* Increased from 0.4 so it's less intense/distracting */
 }
 
 .entry-list .entry-item:hover {
     opacity: 1;
 }
+*/
 
 .entry-title {
     display: flex;
