@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap');
+
+:root {
+    /* Keep your existing colours, but add/replace with Green */
+    --base: #1e1e2e;
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+    --overlay0: #6c7086;
+    --surface0: #313244;
+    --surface1: #45475a;
+
+    --green: #a6e3a1;
+    /* The new accent */
+    --font-serif: 'Newsreader', serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 1. REFINED TEXT SELECTION */
+::selection {
+    background: rgba(166, 227, 161, 0.25);
+    color: var(--text);
+}
+
+body {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    font-variant-ligatures: common-ligatures;
+    -webkit-font-smoothing: antialiased;
+    /* 
+    Fluid vertical padding:
+    - Minimum: 3rem (on small phones)
+    - Preferred: 12vh (pushes it down proportionally on tall monitors)
+    - Maximum: 9rem (caps it so it never drops into the middle)
+  */
+    padding: clamp(3rem, 12vh, 9rem) 1.5rem 4rem;
+}
+
+.container {
+    max-width: 62.5ch;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+/* 2. SUBTLE ENTRANCE ANIMATION */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    /* Anchors the header, animates only the changing content */
+    animation: fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Header & Typography */
+h1,
+h2,
+h3 {
+    color: var(--text);
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.15rem;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    color: var(--subtext0);
+    margin-top: 0.4rem;
+    margin-bottom: 1.75rem;
+}
+
+p {
+    margin-bottom: 0.9rem;
+}
+
+/* Navigation */
+nav {
+    margin-bottom: 2.7rem;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+}
+
+nav a {
+    margin-right: 1.25rem;
+    color: var(--text);
+}
+
+nav a.active {
+    color: var(--green);
+    border-bottom: none;
+    pointer-events: none;
+}
+
+.breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    color: var(--overlay0);
+}
+
+.breadcrumb a {
+    color: var(--green);
+    border: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--flamingo);
+}
+
+/* Links */
+a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--surface0);
+    transition: color 0.2s ease, border-color 0.2s ease;
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    color: var(--green);
+    border-bottom-color: var(--green);
+}
+
+/* 3. EXTERNAL LINK AFFORDANCE */
+a[target="_blank"]::after {
+    content: "↗";
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    opacity: 0.5;
+    display: inline-block;
+    margin-left: 0.3em;
+    /* Adds the perfect amount of breathing room */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+a[target="_blank"]:hover::after {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+/* DISCORD */
+a[target="_discord"]::after {
+    content: " ";
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    opacity: 0.5;
+    display: inline-block;
+    margin-left: 0.3em;
+    /* Adds the perfect amount of breathing room */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+a[target="_discord"]:hover::after {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+/*
+.geo-stamp {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--overlay0);
+    margin-top: 2rem;
+}
+*/
+
+/* Lists */
+.entry-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.entry-item {
+    margin-bottom: 2.25rem;
+    transition: opacity 0.3s ease;
+}
+
+/* 4. DIM THE ROOM HOVER EFFECT */
+.entry-list:hover .entry-item {
+    opacity: 0.5;
+    /* Increased from 0.4 so it's less intense/distracting */
+}
+
+.entry-list .entry-item:hover {
+    opacity: 1;
+}
+
+.entry-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.entry-title h3 {
+    font-size: 1.4rem;
+}
+
+.entry-title h3 a {
+    border-bottom: 1px solid var(--surface1);
+}
+
+.entry-title h3 a:hover {
+    color: var(--lavender);
+    border-bottom-color: var(--lavender);
+}
+
+.entry-meta {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--overlay0);
+}
+
+/* ASCII Art */
+.ascii-art {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--overlay0);
+    white-space: pre;
+    text-align: center;
+    margin-top: 4rem;
+    line-height: 1.2;
+    user-select: none;
+}
+
+/* Footer */
+hr {
+    border: 0;
+    border-top: 1px solid var(--surface0);
+    margin: 3.5rem 0 1.5rem 0;
+}
+
+footer {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+footer a {
+    color: var(--subtext0);
+    border: none;
+}
+
+footer a:hover {
+    color: var(--sapphire);
+}
+
+/* Mobile Polish */
+@media (max-width: 600px) {
+    body {
+        padding: 2.5rem 1.75rem;
+        font-size: 1.15rem;
+    }
+
+    .entry-title {
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+    }
+}

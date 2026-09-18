@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing - Aryaman Aisola</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%2324273A'/></svg>">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .writing-list {
+            list-style: none;
+            margin-top: 2.5rem;
+        }
+
+        .writing-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .writing-list:hover li {
+            opacity: 0.4;
+        }
+
+        .writing-list li:hover {
+            opacity: 1;
+        }
+
+        .writing-list .date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--overlay0);
+            min-width: 6rem;
+        }
+        
+        .blog-title {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem; /* This keeps the title and brackets snugly together */
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-title h2 {
+            border-bottom: none;
+            margin: 0;
+            padding: 0;
+            font-size: 1.5rem;
+        }
+
+        .blog-title span {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--overlay0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Aryaman Aisola</a> / Writing
+        </div>
+
+        <main>
+            <div class="blog-title">
+                <h2>The Association of Curious Idiots</h2>
+                <span>(<a href="https://mistovek016.substack.com/" target="_blank">Substack</a>)</span>
+            </div>
+            
+            <p>Musings on technology, AIML, math, science, philosophy, and other interesting things (and a record of recursive self-improvement in progress).</p>
+
+            <ul class="writing-list">
+                <li>
+                    <span class="date">Sep 2026</span>
+                    <a href="https://mistovek016.substack.com/p/the-slow-death-of-our-memories" target="_blank">The slow death of our memories</a>
+                </li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
